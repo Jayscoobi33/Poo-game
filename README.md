@@ -2,12 +2,6 @@
 Poo game repo for poo game
 
 
-We poopin
-
-We gamin'
-
-dodge the poo
-
-win the game
+my peniiiiiiiiiiiiiiiis is hurting FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK
 
 james was here
