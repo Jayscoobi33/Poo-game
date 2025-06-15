@@ -1,21 +1,27 @@
 extends CharacterBody2D
 
+@onready var death_sound_poo_1: AudioStreamPlayer2D = $DeathSoundPoo1
+
 var direction = 1
+var speed = 500
+var points = 100
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if global_position.x > 1900:
 		direction = 0
 	elif global_position.x < 20:
 		direction = 1
 	
 	if direction == 1:
-		position.x += 5
+		position.x += speed * delta
 	else:
-		position.x -= 5 
+		position.x -= speed * delta
 	
 	pass
 		

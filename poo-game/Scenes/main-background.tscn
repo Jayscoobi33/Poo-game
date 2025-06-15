@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuml62c5wnfy5"]
+[gd_scene load_steps=10 format=3 uid="uid://cuml62c5wnfy5"]
 
 [ext_resource type="PackedScene" uid="uid://db48sqf4fhhrr" path="res://Scenes/test-poo.tscn" id="1_eaxsd"]
+[ext_resource type="Script" uid="uid://bq22yudhsi304" path="res://Scripts/game_manager.gd" id="1_r2g3p"]
 [ext_resource type="Texture2D" uid="uid://jyepea6mbaii" path="res://Assets/backgrounds/toilets.png" id="2_873dq"]
+[ext_resource type="Script" uid="uid://b1bgtqe7tk3wg" path="res://Scripts/background.gd" id="2_dj5li"]
 [ext_resource type="PackedScene" uid="uid://bj1xsavstda31" path="res://Scenes/character_body_2d.tscn" id="3_7rfvc"]
+[ext_resource type="AudioStream" uid="uid://bhkbhqqexx2v0" path="res://Assets/Audio/Gunther - Ding Dong Song.mp3" id="3_oo45x"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eaxsd"]
 distance = 98.0
@@ -14,17 +17,17 @@ distance = 98.0
 [node name="Background" type="Node2D"]
 position = Vector2(380, -880)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-z_index = 1
-position = Vector2(455, 1765)
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_r2g3p")
 
-[node name="bottom boundary" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-835, 261)
-shape = SubResource("WorldBoundaryShape2D_eaxsd")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="."]
 position = Vector2(580, 1420)
 texture = ExtResource("2_873dq")
+script = ExtResource("2_dj5li")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="background"]
+stream = ExtResource("3_oo45x")
 
 [node name="Player" parent="." instance=ExtResource("3_7rfvc")]
 position = Vector2(527, 1669)
@@ -32,6 +35,14 @@ position = Vector2(527, 1669)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-380, 880)
 anchor_mode = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
+position = Vector2(455, 1765)
+
+[node name="bottom boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-835, 261)
+shape = SubResource("WorldBoundaryShape2D_eaxsd")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
@@ -51,10 +62,17 @@ shape = SubResource("WorldBoundaryShape2D_7rfvc")
 position = Vector2(-154, 1754)
 
 [node name="test-poo2" parent="." instance=ExtResource("1_eaxsd")]
-position = Vector2(159, 1516)
+position = Vector2(213, 1745)
 
 [node name="test-poo3" parent="." instance=ExtResource("1_eaxsd")]
-position = Vector2(495, 1255)
+position = Vector2(868, 1743)
 
 [node name="test-poo4" parent="." instance=ExtResource("1_eaxsd")]
-position = Vector2(895, 1039)
+position = Vector2(1183, 1735)
+
+[node name="score" type="Label" parent="."]
+offset_left = 1314.0
+offset_top = 940.0
+offset_right = 1480.0
+offset_bottom = 993.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)

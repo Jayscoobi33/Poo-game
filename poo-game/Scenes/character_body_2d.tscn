@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj1xsavstda31"]
+[gd_scene load_steps=9 format=3 uid="uid://bj1xsavstda31"]
 
 [ext_resource type="Texture2D" uid="uid://cp10xd58q4kyv" path="res://Assets/sprites/poo-boy-frame1.png" id="1_f50pn"]
-[ext_resource type="Script" uid="uid://dish1kimthb8g" path="res://player.gd" id="1_ij6vw"]
+[ext_resource type="Script" uid="uid://dish1kimthb8g" path="res://Scripts/player.gd" id="1_ij6vw"]
 [ext_resource type="AudioStream" uid="uid://bx4knttcljnw" path="res://Assets/Audio/Lego Yoda Death Sound.mp3" id="3_it8n0"]
+[ext_resource type="AudioStream" uid="uid://b87w672s23vlo" path="res://Assets/Audio/deathSound1.mp3" id="4_gbyq6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ij6vw"]
 atlas = ExtResource("1_f50pn")
@@ -27,7 +28,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f50pn"]
-radius = 26.3059
+radius = 31.0161
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ij6vw")
@@ -39,8 +40,31 @@ animation = &"run"
 autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -47)
+position = Vector2(1, -50)
 shape = SubResource("CircleShape2D_f50pn")
 
-[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+[node name="RayCastDown" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(0, -49)
+target_position = Vector2(0, 34)
+
+[node name="jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_it8n0")
+
+[node name="killSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gbyq6")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(1, -51)
+target_position = Vector2(33, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(0, -51)
+target_position = Vector2(-31, 0)
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+z_index = 1
+position = Vector2(0, -49)
+target_position = Vector2(0, -34)
