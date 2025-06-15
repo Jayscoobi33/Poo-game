@@ -1,43 +1,60 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuml62c5wnfy5"]
+[gd_scene load_steps=7 format=3 uid="uid://cuml62c5wnfy5"]
 
 [ext_resource type="PackedScene" uid="uid://db48sqf4fhhrr" path="res://Scenes/test-poo.tscn" id="1_eaxsd"]
 [ext_resource type="Texture2D" uid="uid://jyepea6mbaii" path="res://Assets/backgrounds/toilets.png" id="2_873dq"]
-[ext_resource type="PackedScene" uid="uid://bj1xsavstda31" path="res://character_body_2d.tscn" id="3_7rfvc"]
+[ext_resource type="PackedScene" uid="uid://bj1xsavstda31" path="res://Scenes/character_body_2d.tscn" id="3_7rfvc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eaxsd"]
+distance = 98.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_873dq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7rfvc"]
 
 [node name="Background" type="Node2D"]
 position = Vector2(380, -880)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(544, 680)
-
-[node name="test-poo" parent="." instance=ExtResource("1_eaxsd")]
-visible = false
-z_index = 1
-position = Vector2(553, 429)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
+position = Vector2(455, 1765)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(565, 862)
+[node name="bottom boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-835, 261)
 shape = SubResource("WorldBoundaryShape2D_eaxsd")
 
-[node name="TileMap" type="TileMap" parent="."]
-position = Vector2(7, 0)
-format = 2
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(583, 327)
+position = Vector2(580, 1420)
 texture = ExtResource("2_873dq")
 
 [node name="Player" parent="." instance=ExtResource("3_7rfvc")]
-position = Vector2(542, 708)
+position = Vector2(527, 1669)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-380, 880)
+anchor_mode = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/StaticBody2D"]
-position = Vector2(-1, 24)
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="left boundary" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-380, 1960)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_873dq")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="right boundary" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(1540, 1960)
+rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_7rfvc")
+
+[node name="test-poo" parent="." instance=ExtResource("1_eaxsd")]
+position = Vector2(-154, 1754)
+
+[node name="test-poo2" parent="." instance=ExtResource("1_eaxsd")]
+position = Vector2(159, 1516)
+
+[node name="test-poo3" parent="." instance=ExtResource("1_eaxsd")]
+position = Vector2(495, 1255)
+
+[node name="test-poo4" parent="." instance=ExtResource("1_eaxsd")]
+position = Vector2(895, 1039)

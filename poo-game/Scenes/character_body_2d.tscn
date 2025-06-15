@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bj1xsavstda31"]
+[gd_scene load_steps=8 format=3 uid="uid://bj1xsavstda31"]
 
 [ext_resource type="Texture2D" uid="uid://cp10xd58q4kyv" path="res://Assets/sprites/poo-boy-frame1.png" id="1_f50pn"]
 [ext_resource type="Script" uid="uid://dish1kimthb8g" path="res://player.gd" id="1_ij6vw"]
+[ext_resource type="AudioStream" uid="uid://bx4knttcljnw" path="res://Assets/Audio/Lego Yoda Death Sound.mp3" id="3_it8n0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ij6vw"]
 atlas = ExtResource("1_f50pn")
@@ -38,5 +39,8 @@ animation = &"run"
 autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -27)
+position = Vector2(5, -47)
 shape = SubResource("CircleShape2D_f50pn")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_it8n0")
