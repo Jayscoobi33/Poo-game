@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuml62c5wnfy5"]
+
+[ext_resource type="PackedScene" uid="uid://db48sqf4fhhrr" path="res://Scenes/test-poo.tscn" id="1_eaxsd"]
+[ext_resource type="Texture2D" uid="uid://jyepea6mbaii" path="res://Assets/backgrounds/toilets.png" id="2_873dq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eaxsd"]
+
+[node name="Background" type="Node2D"]
+position = Vector2(384, 216)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="test-poo" parent="." instance=ExtResource("1_eaxsd")]
+z_index = 1
+position = Vector2(553, 429)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(565, 862)
+shape = SubResource("WorldBoundaryShape2D_eaxsd")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_873dq")
