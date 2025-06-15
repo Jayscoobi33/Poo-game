@@ -1,21 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://db48sqf4fhhrr"]
 
 [ext_resource type="Script" uid="uid://dow4fgckqnx2l" path="res://Scripts/test_poo.gd" id="1_i6vh3"]
-[ext_resource type="Texture2D" uid="uid://frtqhr4l3dv7" path="res://Assets/sprites/poo-boy-1_100x100.png" id="2_i6vh3"]
+[ext_resource type="Texture2D" uid="uid://c272j7gj5scqd" path="res://Assets/sprites/poo-1.png" id="1_utbu7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i6vh3"]
 radius = 34.0
-height = 74.0
+height = 122.0
 
 [node name="test-poo" type="CharacterBody2D"]
 script = ExtResource("1_i6vh3")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -53)
+texture = ExtResource("1_utbu7")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
 position = Vector2(-1, -43)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_i6vh3")
-
-[node name="Poo-boy-1100x100" type="Sprite2D" parent="."]
-position = Vector2(0, -50)
-texture = ExtResource("2_i6vh3")

@@ -1,17 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuml62c5wnfy5"]
+[gd_scene load_steps=6 format=3 uid="uid://cuml62c5wnfy5"]
 
 [ext_resource type="PackedScene" uid="uid://db48sqf4fhhrr" path="res://Scenes/test-poo.tscn" id="1_eaxsd"]
 [ext_resource type="Texture2D" uid="uid://jyepea6mbaii" path="res://Assets/backgrounds/toilets.png" id="2_873dq"]
+[ext_resource type="PackedScene" uid="uid://bj1xsavstda31" path="res://character_body_2d.tscn" id="3_7rfvc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eaxsd"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7rfvc"]
+
 [node name="Background" type="Node2D"]
-position = Vector2(384, 216)
+position = Vector2(380, -880)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
+position = Vector2(544, 680)
 
 [node name="test-poo" parent="." instance=ExtResource("1_eaxsd")]
+visible = false
 z_index = 1
 position = Vector2(553, 429)
 
@@ -21,6 +25,19 @@ position = Vector2(553, 429)
 position = Vector2(565, 862)
 shape = SubResource("WorldBoundaryShape2D_eaxsd")
 
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(7, 0)
+format = 2
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
+position = Vector2(583, 327)
 texture = ExtResource("2_873dq")
+
+[node name="Player" parent="." instance=ExtResource("3_7rfvc")]
+position = Vector2(542, 708)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/StaticBody2D"]
+position = Vector2(-1, 24)
+shape = SubResource("WorldBoundaryShape2D_7rfvc")
