@@ -12,42 +12,31 @@ extends CharacterBody2D
 const SPEED = 700
 const JUMP_VELOCITY = -1200
 
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta + Vector2(0, 30)
 	
-	if ray_cast_down.is_colliding() && global_position.y < 1030:
+	if global_position.y > 1080:
+		game_manager.chain = 0
+	
+	if ray_cast_down.is_colliding() && global_position.y < 1079:
 		velocity.y = JUMP_VELOCITY
+		game_manager.chain += 1
 		var collision = ray_cast_down.get_collider()
-		for i in range(collision.points):
+		for i in range(collision.points * game_manager.chain):
 			game_manager.add_point()
 		kill_sound.play()
 		collision.queue_free()
 		pass
 	var dead = false
 	var regex = RegEx.new()
-	regex.compile("test_poo*")
+	regex.compile("poo*")
 	var rayCasts =[ray_cast_left, ray_cast_right, ray_cast_up]
 	
 	for i in rayCasts:
-		if i.is_colliding() && regex.search(i.get_collider().name) != null:
+		if i.is_colliding() and regex.search(i.get_collider().name):
 			queue_free()
-	
-	#if ray_cast_left.is_colliding() && \
-		#ray_cast_left.get_collider().name == "test-poo":
-		#dead = true
-	#
-	#if ray_cast_right.is_colliding() && \
-		#ray_cast_right.get_collider().name == "test-poo":
-		#dead = true
-	#
-	#if ray_cast_up.is_colliding() && \
-		#ray_cast_up.get_collider().name == "test-poo":
-	#
-		#dead = true
-		
 	
 	if dead == true:
 		queue_free()

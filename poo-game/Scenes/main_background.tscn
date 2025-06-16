@@ -1,13 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cuml62c5wnfy5"]
+[gd_scene load_steps=10 format=3 uid="uid://cuml62c5wnfy5"]
 
 [ext_resource type="Script" uid="uid://bq22yudhsi304" path="res://Scripts/game_manager.gd" id="1_gdigm"]
 [ext_resource type="Texture2D" uid="uid://detuopa2vk05q" path="res://Assets/backgrounds/toilets_update.png" id="2_i84xb"]
 [ext_resource type="Script" uid="uid://b1bgtqe7tk3wg" path="res://Scripts/background.gd" id="3_b2ldo"]
 [ext_resource type="AudioStream" uid="uid://bhkbhqqexx2v0" path="res://Assets/Audio/Gunther - Ding Dong Song.mp3" id="4_uyj5p"]
 [ext_resource type="PackedScene" uid="uid://bj1xsavstda31" path="res://Scenes/character_body_2d.tscn" id="5_v762a"]
-[ext_resource type="PackedScene" uid="uid://db48sqf4fhhrr" path="res://Scenes/test_poo.tscn" id="6_uxx0p"]
-[ext_resource type="PackedScene" uid="uid://c2nisbdtehnis" path="res://Scenes/poo1LeftSpawner.tscn" id="7_knyi6"]
-[ext_resource type="PackedScene" uid="uid://cnutwa2ht2frl" path="res://Scenes/poo1RightSpawner.tscn" id="8_i84xb"]
+[ext_resource type="PackedScene" uid="uid://c2nisbdtehnis" path="res://Scenes/pooSpawner.tscn" id="7_knyi6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eaxsd"]
 distance = 19.0
@@ -63,29 +61,17 @@ position = Vector2(1682, 858)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_7rfvc")
 
-[node name="test_poo" parent="." instance=ExtResource("6_uxx0p")]
-position = Vector2(236, 900)
-
-[node name="test_poo2" parent="." instance=ExtResource("6_uxx0p")]
-position = Vector2(610, 900)
-
-[node name="test_poo3" parent="." instance=ExtResource("6_uxx0p")]
-position = Vector2(1265, 900)
-
-[node name="test_poo4" parent="." instance=ExtResource("6_uxx0p")]
-position = Vector2(1580, 900)
-
 [node name="score" type="Label" parent="."]
 z_index = 1
-offset_left = 1582.0
-offset_top = 89.0
-offset_right = 1880.0
-offset_bottom = 158.0
+offset_left = 854.0
+offset_top = 96.0
+offset_right = 1152.0
+offset_bottom = 165.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 
-[node name="Poo1LeftSpawner" parent="." instance=ExtResource("7_knyi6")]
-position = Vector2(-100, 900)
+[node name="pooSpawner" parent="." instance=ExtResource("7_knyi6")]
+position = Vector2(-100, 1060)
 
-[node name="Poo1LeftSpawner2" parent="." instance=ExtResource("8_i84xb")]
-position = Vector2(2020, 900)
+[node name="pooSpawner2" parent="." instance=ExtResource("7_knyi6")]
+position = Vector2(2020, 1060)

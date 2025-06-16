@@ -1,5 +1,6 @@
 extends Node
 
+var chain = 0
 @onready var scoreText: Label = $"../score"
 
 var score = 0
@@ -9,4 +10,7 @@ func _ready() -> void:
 
 func add_point():
 	score += 1
-	scoreText.text = "SCORE: " + str(score)
+	if chain == 1:
+		scoreText.text = "SCORE: " + str(score)
+	else:
+		scoreText.text = "SCORE: " + str(score) + " CHAIN! X " + str(chain)

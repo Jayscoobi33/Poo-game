@@ -22,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pbq55")
 }],
-"loop": true,
+"loop": false,
 "name": &"run",
 "speed": 4.0
 }]
@@ -45,6 +45,7 @@ position = Vector2(1, -50)
 shape = SubResource("CircleShape2D_f50pn")
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(0, -49)
 target_position = Vector2(0, 34)
@@ -56,16 +57,35 @@ stream = ExtResource("3_gbyq6")
 stream = ExtResource("4_gbyq6")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(1, -51)
 target_position = Vector2(33, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(0, -51)
 target_position = Vector2(-31, 0)
 
 [node name="RayCastUp" type="RayCast2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(0, -49)
 target_position = Vector2(0, -34)
+
+[node name="RayCastNW" type="RayCast2D" parent="."]
+position = Vector2(0, -50)
+target_position = Vector2(-23, -23)
+
+[node name="RayCastNE" type="RayCast2D" parent="."]
+position = Vector2(0, -49)
+target_position = Vector2(25, -22)
+
+[node name="RayCastSW" type="RayCast2D" parent="."]
+position = Vector2(1, -49)
+target_position = Vector2(-24, 21)
+
+[node name="RayCastSE" type="RayCast2D" parent="."]
+position = Vector2(1, -50)
+target_position = Vector2(23, 23)
