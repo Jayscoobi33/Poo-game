@@ -26,8 +26,30 @@ func _physics_process(delta: float) -> void:
 		kill_sound.play()
 		collision.queue_free()
 		pass
+	var dead = false
+	var regex = RegEx.new()
+	regex.compile("test_poo*")
+	var rayCasts =[ray_cast_left, ray_cast_right, ray_cast_up]
 	
-	if ray_cast_left.is_colliding() || ray_cast_right.is_colliding() || ray_cast_up.is_colliding():
+	for i in rayCasts:
+		if i.is_colliding() && regex.search(i.get_collider().name) != null:
+			queue_free()
+	
+	#if ray_cast_left.is_colliding() && \
+		#ray_cast_left.get_collider().name == "test-poo":
+		#dead = true
+	#
+	#if ray_cast_right.is_colliding() && \
+		#ray_cast_right.get_collider().name == "test-poo":
+		#dead = true
+	#
+	#if ray_cast_up.is_colliding() && \
+		#ray_cast_up.get_collider().name == "test-poo":
+	#
+		#dead = true
+		
+	
+	if dead == true:
 		queue_free()
 	
 	# Handle jump.

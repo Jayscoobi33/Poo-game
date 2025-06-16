@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://db48sqf4fhhrr"]
+
+[ext_resource type="Script" uid="uid://d2u7n3dklap3n" path="res://Scripts/test_poo.gd" id="1_i6vh3"]
+[ext_resource type="Texture2D" uid="uid://c272j7gj5scqd" path="res://Assets/sprites/poo-1.png" id="1_utbu7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6vh3"]
+size = Vector2(31.5003, 156)
+
+[node name="test-poo" type="CharacterBody2D"]
+script = ExtResource("1_i6vh3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -53)
+texture = ExtResource("1_utbu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.31538e-05, -27.2501)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_i6vh3")

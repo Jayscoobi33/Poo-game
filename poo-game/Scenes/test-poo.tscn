@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://db48sqf4fhhrr"]
+[gd_scene load_steps=4 format=3 uid="uid://bcwpx2ag18nhm"]
 
 [ext_resource type="Script" uid="uid://d2u7n3dklap3n" path="res://Scripts/test_poo.gd" id="1_i6vh3"]
 [ext_resource type="Texture2D" uid="uid://binfyn1tpph78" path="res://Assets/sprites/fly-poo-guy-1.png" id="2_i6vh3"]
