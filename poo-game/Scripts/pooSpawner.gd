@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var TEST_POO_LEFT = preload("res://Scenes/test_poo.tscn")
+@export var TEST_POO_LEFT = preload("res://Scenes/poo1.tscn")
 
 func _ready() -> void:
 	pass
