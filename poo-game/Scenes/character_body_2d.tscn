@@ -2,25 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://cp10xd58q4kyv" path="res://Assets/sprites/poo-boy-frame1.png" id="1_f50pn"]
 [ext_resource type="Script" uid="uid://dish1kimthb8g" path="res://Scripts/player.gd" id="1_ij6vw"]
-[ext_resource type="AudioStream" uid="uid://bx4knttcljnw" path="res://Assets/Audio/Lego Yoda Death Sound.mp3" id="3_it8n0"]
-[ext_resource type="AudioStream" uid="uid://b87w672s23vlo" path="res://Assets/Audio/deathSound1.mp3" id="4_gbyq6"]
+[ext_resource type="AudioStream" uid="uid://kuhbmfyt6osl" path="res://Assets/Audio/jump.wav" id="3_gbyq6"]
+[ext_resource type="AudioStream" uid="uid://dhq3agpmumsp8" path="res://Assets/Audio/kill-poo-splat.wav" id="4_gbyq6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ij6vw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbyq6"]
+atlas = ExtResource("1_f50pn")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbq55"]
 atlas = ExtResource("1_f50pn")
 region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ghijl"]
-atlas = ExtResource("1_f50pn")
-region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_44cfe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ij6vw")
+"texture": SubResource("AtlasTexture_gbyq6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ghijl")
+"texture": SubResource("AtlasTexture_pbq55")
 }],
 "loop": true,
 "name": &"run",
@@ -38,6 +38,7 @@ position = Vector2(3, -49)
 sprite_frames = SubResource("SpriteFrames_44cfe")
 animation = &"run"
 autoplay = "run"
+frame_progress = 0.901158
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -50)
@@ -49,7 +50,7 @@ position = Vector2(0, -49)
 target_position = Vector2(0, 34)
 
 [node name="jump" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_it8n0")
+stream = ExtResource("3_gbyq6")
 
 [node name="killSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_gbyq6")
