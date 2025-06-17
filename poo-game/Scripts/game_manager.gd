@@ -8,8 +8,8 @@ var score = 0
 func _ready() -> void:
 	scoreText.text = "SCORE:"
 
-func add_point():
-	score += 1
+func add_point(points):
+	score += points
 	if chain == 1:
 		scoreText.text = "SCORE: " + str(score)
 	else:

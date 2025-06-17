@@ -9,8 +9,23 @@ script = ExtResource("1_rbws7")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pewis")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="poo1Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="poo1Timer2" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="poo2Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="poo3Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="poo1Timer" to="." method="_on_poo_1_timer_timeout"]
+[connection signal="timeout" from="poo1Timer2" to="." method="_on_poo_1_timer_2_timeout"]
+[connection signal="timeout" from="poo2Timer" to="." method="_on_poo_2_timer_timeout"]
+[connection signal="timeout" from="poo3Timer" to="." method="_on_poo_3_timer_timeout"]

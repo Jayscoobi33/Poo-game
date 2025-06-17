@@ -72,6 +72,3 @@ theme_override_font_sizes/font_size = 50
 
 [node name="pooSpawner" parent="." instance=ExtResource("7_knyi6")]
 position = Vector2(-100, 1060)
-
-[node name="pooSpawner2" parent="." instance=ExtResource("7_knyi6")]
-position = Vector2(2020, 1060)
