@@ -13,24 +13,23 @@ texture = ExtResource("1_pewis")
 wait_time = 0.5
 autostart = true
 
-[node name="poo1Timer2" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
-
 [node name="poo2Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 10.0
 autostart = true
 
 [node name="poo3Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 20.0
+autostart = true
+
+[node name="poo4Timer" type="Timer" parent="."]
+wait_time = 30.0
 autostart = true
 
 [node name="clock" type="Timer" parent="."]
-wait_time = 0.001
 autostart = true
 
 [connection signal="timeout" from="poo1Timer" to="." method="_on_poo_1_timer_timeout"]
-[connection signal="timeout" from="poo1Timer2" to="." method="_on_poo_1_timer_2_timeout"]
 [connection signal="timeout" from="poo2Timer" to="." method="_on_poo_2_timer_timeout"]
 [connection signal="timeout" from="poo3Timer" to="." method="_on_poo_3_timer_timeout"]
+[connection signal="timeout" from="poo4Timer" to="." method="_on_poo_4_timer_timeout"]
 [connection signal="timeout" from="clock" to="." method="_on_clock_timeout"]
