@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 @onready var death_sound_poo_1: AudioStreamPlayer2D = $DeathSoundPoo1
-@onready var animated: Sprite2D = $animated
+@onready var animated: AnimatedSprite2D = $animated
 
 var direction
 var speed = 0
-var points = 100
-var type = "poo1"
+var points = 600
+var type = "poo4"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,5 +25,6 @@ func _process(delta: float) -> void:
 	else:
 		position.x -= speed * delta
 		animated.flip_h = true
+	
 	pass
 		
