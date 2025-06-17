@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@onready var death_sound_poo_1: AudioStreamPlayer2D = $DeathSoundPoo1
 @onready var animated: Sprite2D = $animated
 
 var direction

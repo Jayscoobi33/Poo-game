@@ -5,7 +5,6 @@ extends CharacterBody2D
 @onready var game_manager: Node = %GameManager
 @onready var kill_sound: AudioStreamPlayer2D = $killSound
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var area_2d: Area2D = $Area2D
 @onready var death_sound: AudioStreamPlayer2D = $deathSound
 
 const SPEED = 700
@@ -53,6 +52,6 @@ func _on_kill_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_death_area_entered(area: Area2D) -> void:
+func _on_death_area_entered(_area: Area2D) -> void:
 	queue_free()
 	pass # Replace with function body.
