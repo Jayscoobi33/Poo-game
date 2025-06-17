@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-@onready var death_sound_poo_1: AudioStreamPlayer2D = $DeathSoundPoo1
-
 var direction
 var speed = 0
 var points = 200
