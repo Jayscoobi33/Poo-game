@@ -25,7 +25,12 @@ autostart = true
 wait_time = 5.0
 autostart = true
 
+[node name="clock" type="Timer" parent="."]
+wait_time = 0.001
+autostart = true
+
 [connection signal="timeout" from="poo1Timer" to="." method="_on_poo_1_timer_timeout"]
 [connection signal="timeout" from="poo1Timer2" to="." method="_on_poo_1_timer_2_timeout"]
 [connection signal="timeout" from="poo2Timer" to="." method="_on_poo_2_timer_timeout"]
 [connection signal="timeout" from="poo3Timer" to="." method="_on_poo_3_timer_timeout"]
+[connection signal="timeout" from="clock" to="." method="_on_clock_timeout"]
