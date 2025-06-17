@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcwpx2ag18nhm"]
+
+[ext_resource type="Script" uid="uid://cv1738c6wnq7v" path="res://Scripts/poo_2.gd" id="1_1mcb1"]
+[ext_resource type="Texture2D" uid="uid://1vdgxprinbsr" path="res://Assets/sprites/high_poo_spritesheet.png" id="2_1mcb1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvrk0"]
+atlas = ExtResource("2_1mcb1")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atfmn"]
+atlas = ExtResource("2_1mcb1")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iax6j"]
+atlas = ExtResource("2_1mcb1")
+region = Rect2(1000, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pvpk"]
+atlas = ExtResource("2_1mcb1")
+region = Rect2(1500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inwh0"]
+atlas = ExtResource("2_1mcb1")
+region = Rect2(2000, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j87eq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvrk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atfmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iax6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pvpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inwh0")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6vh3"]
+size = Vector2(55.5001, 156)
+
+[node name="poo2" type="CharacterBody2D"]
+script = ExtResource("1_1mcb1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -75)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_j87eq")
+animation = &"move"
+autoplay = "move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -37)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_i6vh3")
+
+[node name="poo2HitBox" type="Area2D" parent="."]
+position = Vector2(6, -37)
+rotation = 1.5708
+
+[node name="hitBox" type="CollisionShape2D" parent="poo2HitBox"]
+position = Vector2(2.8213e-07, 0)
+shape = SubResource("RectangleShape2D_i6vh3")
