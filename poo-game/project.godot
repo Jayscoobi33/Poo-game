@@ -13,7 +13,7 @@ config_version=5
 config/name="Poo-game"
 run/main_scene="uid://d4a8fsap13knj"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://edgd6h1ew2a0"
 
 [display]
 
