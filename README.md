@@ -1,7 +1,7 @@
 # Poo-game
 
 
-my peniiiiiiiiiiiiiiiis is hurting FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK
+a more formal readme
 
 james was here
 
